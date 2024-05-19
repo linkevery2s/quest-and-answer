@@ -9,7 +9,7 @@
   <meta property="og:title" content="英単語アプリ" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://english-word2s.netlify.app/images/ogp.png" />
-  <meta name="description" content="英単語をアプリで簡単に覚えよう！単語を消したり、意味を消したり、自分好みの設定で一問一答に解答できます！" />
+  <meta name="description" content="英単語をアプリで簡単に覚えよう！中学生が覚えたい英単語集です。単語を消したり、意味を消したり、自分好みの設定で一問一答に解答できます！" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="英単語アプリ" />
   <meta name="twitter:image" content="https://english-word2s.netlify.app/images/ogp.png" />
@@ -20,7 +20,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,6 +27,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
     integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
   <style>
     html {
@@ -47,17 +48,6 @@
 
     }
 
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 0;
-      margin: 0;
-      z-index: 0;
-    }
-
     h1 {
       color: #ffffff;
     }
@@ -67,7 +57,7 @@
       position: fixed;
       top: 0;
       z-index: 100;
-      background: #1e50a2;
+      background: #c9171e;
     }
 
     input {
@@ -110,7 +100,7 @@
       position: fixed;
       bottom: 0;
       z-index: 100;
-      background: #1e50a2;
+      background: #c9171e;
       color: #ffffff;
     }
 
@@ -167,11 +157,8 @@
 
   <body>
 
-    <div id="particles-js">
-    </div>
-
     <div class="header text-center p-3">
-      <input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus placeholder="数式の検索" />
+      <input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus placeholder="Search" />
 
     </div>
 
@@ -191,17 +178,7 @@
 
     </div>
 
-
-
-    <script type="text/javascript" src="js/particles.min.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-
-    <!--<script src="./data/math.json"></script>-->
-
     <script type="module">
-
-      //const max = data.length;
-      //console.log(max);
 
       const result = document.querySelector("#result");
       const resultCount = document.querySelector(".resultCount");
@@ -211,8 +188,7 @@
       /* 最初のロード時 */
       onload = async () => {
 
-        const res = await fetch("https://script.google.com/macros/s/AKfycbxKz_1_5h6dwFqSGdT-jdUCmd2zR_01A5pTX6LPNS8h8IV2D0kl9sjbZ_OujDL98IE/exec");
-        const data = await res.json();
+        const data = await d3.csv('./data/word.csv');
         const max = data.length;
 
         for (let i = 0; i < max; i++) {
@@ -225,11 +201,13 @@
 
       };
 
-
       /* 検索ボタン押下時 */
       document.getElementById('text').addEventListener('keyup',
 
         async () => {
+
+          const data = await d3.csv('./data/word.csv');
+          const max = data.length;
 
           if (text.value != "") {
 
@@ -241,9 +219,9 @@
 
             for (let j = 0; j < max; j++) {
 
-              if (data[j].title.indexOf(kensaku) != -1 || data[j].explanation.indexOf(kensaku) != -1 || data[j].proof.indexOf(kensaku) != -1 || data[j].remarks.indexOf(kensaku) != -1) {
+              if (data[j].word.indexOf(kensaku) != -1 || data[j].meaning.indexOf(kensaku) != -1 || data[j].example.indexOf(kensaku) != -1) {
 
-                result.innerHTML += '<div class="table">' + '<div class="item_title">' + data[i].word + '</div>' + '<div class="item_ex">' + data[i].meaning + '</div>' + '</div>';
+                result.innerHTML += '<div class="table">' + '<div class="item_title">' + data[j].word + '</div>' + '<div class="item_ex">' + data[j].meaning + '</div>' + '</div>';
 
                 count += 1;
 
