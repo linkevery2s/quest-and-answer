@@ -18,8 +18,10 @@
   <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
   <link rel="icon" href="./images/apple-touch-icon.png">
 
+  <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,6 +31,10 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 
   <style>
     html {
@@ -79,8 +85,9 @@
 
     .main {
       position: absolute;
-      margin: 80px 0 30px 0;
-      z-index: 10;
+      margin: 80px 0 0 0;
+      padding: 0 0 30px 0;
+      z-index: 5;
       width: 90%;
       max-width: 600px;
       left: 50%;
@@ -108,9 +115,38 @@
       border-bottom: 1px dotted #ffffff;
     }
 
+    .sns-fb {
+      position: fixed;
+      left: 3px;
+      bottom: 35px;
+    } 
+
     .item_title {
       color: rgba(0, 119, 184, 1);
       font-weight: bolder;
+    }
+
+    .pagetop {
+      height: 40px;
+      width: 40px;
+      position: fixed;
+      right: 5px;
+      bottom: 35px;
+      background: #f08300;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .pagetop_arrow {
+      height: 10px;
+      width: 10px;
+      border-top: 3px solid #ffffff;
+      border-right: 3px solid #ffffff;
+      transform: translateY(20%) rotate(-45deg);
     }
 
     .area {
@@ -284,6 +320,17 @@
 
   </div>
 
+  <div class="sns-fb">
+
+    <div class="fb-share-button" data-href="https://math-world2s.netlify.app/" data-layout="button_count"
+      data-size="small"></div>
+
+  </div>
+
+  <div class="pagetop">
+    <div class="pagetop_arrow"></div>
+  </div>
+
   <!-- フッター -->
   <div id="footer" class="footer p-2 text-center">
 
@@ -303,6 +350,15 @@
 
     /* 最初のロード時 */
     onload = async () => {
+
+      const topButton = document.querySelector(".pagetop");
+
+      topButton.addEventListener("click", () => {
+
+        $('body,html').animate({ scrollTop: 0 }, 1000);
+        return false;
+
+      });
 
       const data = await d3.csv('./data/word.csv');
       const max = data.length;
@@ -370,6 +426,11 @@
     );
 
   </script>
+
+  <!-- Facebookシェアボタン -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v19.0"
+    nonce="Pm3nh7PB"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPP84V2NHB"></script>
