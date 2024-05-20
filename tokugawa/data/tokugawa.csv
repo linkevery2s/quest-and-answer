@@ -1,0 +1,16 @@
+id,name,kana,birthyear,deathyear,age,start,end,between,url,image
+1,徳川　家康,とくがわ　いえやす,1542,1616,75,1603-02-12,1605-04-16,2年2か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%BA%B7,https://upload.wikimedia.org/wikipedia/commons/1/11/Tokugawa_Ieyasu2.JPG
+2,徳川　秀忠,とくがわ　ひでただ,1579,1632,54,1605-04-16,1623-07-27,18年3か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E7%A7%80%E5%BF%A0,https://upload.wikimedia.org/wikipedia/commons/b/b0/Hidetada2.jpg
+3,徳川　家光,とくがわ　いえみつ,1604,1651,48,1623-07-27,1651-04-20,27年9か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%85%89,https://upload.wikimedia.org/wikipedia/commons/b/b7/Iemitu.jpg
+4,徳川　家綱,とくがわ　いえつな,1641,1680,40,1651-08-18,1680-05-08,28年9か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E7%B6%B1,https://upload.wikimedia.org/wikipedia/commons/f/f5/Tokugawa_Ietsuna.jpg
+5,徳川　綱吉,とくがわ　つなよし,1646,1709,64,1680-08-23,1709-01-10,28年5か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E7%B6%B1%E5%90%89,https://upload.wikimedia.org/wikipedia/commons/d/d9/Tsunyaoshi.jpg
+6,徳川　家宣,とくがわ　いえのぶ,1662,1712,51,1709-05-01,1712-10-14,3年5か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%AE%A3,https://upload.wikimedia.org/wikipedia/commons/d/d2/Tokugawa_Ienobu.jpg
+7,徳川　家継,とくがわ　いえつぐ,1709,1716,8,1713-04-02,1716-04-30,3年1か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E7%B6%99,https://upload.wikimedia.org/wikipedia/commons/6/6b/Tokugawa_Ietsugu_cropped.jpg
+8,徳川　吉宗,とくがわ　よしむね,1684,1751,68,1716-08-13,1745-09-25,29年1か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%90%89%E5%AE%97,https://upload.wikimedia.org/wikipedia/commons/5/50/Tokugawa_Yoshimune.jpg
+9,徳川　家重,とくがわ　いえしげ,1711,1761,51,1745-11-02,1760-05-13,14年6か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E9%87%8D,https://upload.wikimedia.org/wikipedia/commons/8/8d/Tokugawa_Ieshige.jpg
+10,徳川　家治,とくがわ　いえはる,1737,1786,50,1760-05-13,1786-09-08,26年4か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E6%B2%BB,https://upload.wikimedia.org/wikipedia/commons/4/42/Tokugawa_Ieharu.jpg
+11,徳川　家斉,とくがわ　いえなり,1773,1841,69,1787-04-15,1837-04-02,50年,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E6%96%89,https://upload.wikimedia.org/wikipedia/commons/e/ee/Tokugawa_Ienari.jpg
+12,徳川　家慶,とくがわ　いえよし,1793,1853,61,1837-04-02,1853-06-22,16年2か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E6%85%B6,https://upload.wikimedia.org/wikipedia/commons/e/eb/Tokugawa_Ieyoshi.JPG
+13,徳川　家定,とくがわ　いえさだ,1825,1858,35,1853-11-23,1858-07-06,4年8か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E5%AE%9A,https://upload.wikimedia.org/wikipedia/commons/5/53/Tokugawa_Iesada.jpg
+14,徳川　家茂,とくがわ　いえもち,1846,1866,21,1858-10-25,1866-07-20,7年9か月,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E5%AE%B6%E8%8C%82,https://upload.wikimedia.org/wikipedia/commons/6/63/Tokugawa_Iemochi_by_oil_painting.jpg
+15,徳川　慶喜,とくがわ　よしのぶ,1837,1913,77,1867-01-10,1868-01-03,1年,https://ja.wikipedia.org/wiki/%E5%BE%B3%E5%B7%9D%E6%85%B6%E5%96%9C,https://upload.wikimedia.org/wikipedia/commons/9/95/Tokugawa_Yoshinobu_by_oil_painting.jpg
