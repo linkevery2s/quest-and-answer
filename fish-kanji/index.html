@@ -66,12 +66,17 @@
       background: #19448e;
     }
 
+    .header-area{
+      width: 100%;
+      max-width: 600px;
+    }
+
     input {
       color: rgba(0, 119, 184, 0.5);
       font-size: 1.2em;
       font-weight: bolder;
       height: 45px;
-      width: 70%;
+      width: 100%;
       border-radius: .3em;
     }
 
@@ -81,6 +86,10 @@
 
     #text {
       padding-left: 15px;
+    }
+
+    #count{
+      color: #ffffff;
     }
 
     .main {
@@ -295,11 +304,15 @@
 
 <body>
 
-  <div class="header text-center p-3">
-    <input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus placeholder="Search" />
-
+  <div class="header p-3">
+    <center>
+    <div class="flex flex-row items-center header-area">
+      <div class="basis-3/5"><input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus placeholder="Search" /></div>
+      <div class="basis-2/5"><span id="count"></span></div>
+    </div>
+</center>
   </div>
-
+  
   <div class="area">
     <ul class="circles">
       <li></li>
@@ -316,6 +329,7 @@
   </div>
 
   <div class="main">
+
     <div id="result"></div>
 
   </div>
@@ -335,15 +349,14 @@
   <div id="footer" class="footer p-2 text-center">
 
     <p class="text-xs"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
-      &copy <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>. <a
-        href="https://docs.google.com/forms/d/e/1FAIpQLSf-WMoBJRTdA1bmN_SmQ-bsNGeLs1l737d3c9BUNuErjH-KBw/viewform"
-        target="_blank">お問い合わせ</a></p>
+      &copy <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.</p>
 
   </div>
 
   <script type="module">
 
     const result = document.querySelector("#result");
+    const count = document.querySelector("#count");
 
     result.innerHTML = "";
 
@@ -362,9 +375,13 @@
       const data = await d3.csv('./data/word.csv');
       const max = data.length;
 
+      data.sort((a, b) => a.yomi.localeCompare(b.yomi), 'ja');
+
+      count.innerHTML = max + " 件 ／ 678 件"
+
       for (let i = 0; i < max; i++) {
 
-        result.innerHTML += '<div class="table">' + '<div class="item_title">' + data[i].word + '</div>' + '<div class="item_ex">' + data[i].yomi + '</div>' + '</div>';
+        result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + '</div>';
 
       };
 
@@ -378,6 +395,8 @@
         const data = await d3.csv('./data/word.csv');
         const max = data.length;
 
+        data.sort((a, b) => a.yomi.localeCompare(b.yomi), 'ja');
+
         if (text.value != "") {
 
           result.innerHTML = "";
@@ -390,7 +409,7 @@
 
             if (data[j].word.indexOf(kensaku) != -1 || data[j].yomi.indexOf(kensaku) != -1 || data[j].meaning.indexOf(kensaku) != -1) {
 
-              result.innerHTML += '<div class="table">' + '<div class="item_title">' + data[j].word + '</div>' + '<div class="item_ex">' + data[j].yomi + '</div>' + '</div>';
+              result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[j].word + '</div><div class="text-3xl col-span-3 ...">' + data[j].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[j].meaning + '</div>';
 
               count += 1;
 
@@ -407,9 +426,11 @@
           const data = await d3.csv('./data/word.csv');
           const max = data.length;
 
+          data.sort((a, b) => a.yomi.localeCompare(b.yomi), 'ja');
+
           for (let i = 0; i < max; i++) {
 
-            result.innerHTML += '<div class="table">' + '<div class="item_title">' + data[i].word + '</div>' + '<div class="item_ex">' + data[i].yomi + '</div>' + '</div>';
+            result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + '</div>';
 
           };
 
