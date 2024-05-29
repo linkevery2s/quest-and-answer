@@ -15,8 +15,8 @@
   <meta name="twitter:image" content="https://fish-kanji.netlify.app/images/ogp.png" />
   <meta name="author" content="Saito Hitoshi">
   <meta name="keywords" content="魚偏,fish,Fish,魚,漢字" />
-  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-  <link rel="icon" href="./images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.jpg">
+  <link rel="icon" href="./images/apple-touch-icon.jpg">
 
   <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -127,7 +127,7 @@
     .sns-fb {
       position: fixed;
       left: 3px;
-      bottom: 35px;
+      bottom: 60px;
       z-index: 10;
     }
 
@@ -140,8 +140,8 @@
       height: 40px;
       width: 40px;
       position: fixed;
-      right: 5px;
-      bottom: 35px;
+      right: 4px;
+      bottom: 60px;
       background: #f08300;
       border-radius: 50%;
       display: flex;
@@ -347,9 +347,13 @@
 
   <!-- フッター -->
   <div id="footer" class="footer p-2 text-center">
-
+    <div class="grid gap-4 grid-cols-3 grid-rows-1">
+      <div class="search-btn"><i class="fa-solid fa-user"></i> はじめに</div>
+        <div><i class="fa-solid fa-book-open"></i> 使い方</div>
+      <div class="manual-btn"><i class="fa-solid fa-envelope"></i> 投　稿</div>
+    </div>
     <p class="text-xs"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
-      &copy <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.</p>
+      <i class="fa-regular fa-copyright"></i> <a href="https://code4ichinomiya.github.io/" target="_blank">Code for Ichinomiya</a>.</p>
 
   </div>
 
