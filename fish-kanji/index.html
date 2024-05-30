@@ -62,13 +62,23 @@
       width: 100%;
       position: fixed;
       top: 0;
-      z-index: 100;
+      z-index: 5;
       background: #19448e;
     }
 
-    .header-area{
+    .header-area {
       width: 100%;
       max-width: 600px;
+    }
+
+    .last_update {
+      position: absolute;
+      color: #000000;
+      top: 75px;
+      right: 3px;
+      z-index: 5;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .7);
     }
 
     input {
@@ -88,7 +98,8 @@
       padding-left: 15px;
     }
 
-    #count{
+    .count-title,
+    #count {
       color: #ffffff;
     }
 
@@ -111,11 +122,77 @@
       width: 100%;
     }
 
+    #overlay {
+      width: 100%;
+      height: 120vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, .8);
+      display: none;
+      z-index: 10;
+    }
+
+    #beginner,
+    #manual,
+    #post,
+    #data-source,
+    #sns-share {
+      display: none;
+      height: 75%;
+      max-height: 800px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      max-width: 600px;
+      z-index: 11;
+      background: #ffffff;
+      padding: .3em;
+    }
+
+    .overview {
+      height: 90%;
+    }
+
+    #closed-btn,
+    #closed-btn2,
+    #closed-btn3,
+    #closed-btn4,
+    #closed-btn5 {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border-radius: 100%;
+      color: #000000;
+      border: 1px solid #000000;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+    #closed-btn:hover,
+    #closed-btn2:hover,
+    #closed-btn3:hover,
+    #closed-btn4:hover,
+    #closed-btn5:hover {
+      background: rgba(0, 0, 0, .5);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+
+    #manual_h3 {
+      border-bottom: 3px dotted #a0d8ef;
+      padding-bottom: 3px;
+    }
+
     .footer {
       width: 100%;
       position: fixed;
       bottom: 0;
-      z-index: 100;
+      z-index: 5;
       background: #19448e;
       color: #ffffff;
     }
@@ -124,15 +201,19 @@
       border-bottom: 1px dotted #ffffff;
     }
 
+    .grid a {
+      border-bottom: none;
+    }
+
     .sns-fb {
       position: fixed;
       left: 3px;
       bottom: 60px;
-      z-index: 10;
+      z-index: 5;
     }
 
     .item_title {
-      color: rgba(0, 119, 184, 1);
+      color: #19448e;
       font-weight: bolder;
     }
 
@@ -147,7 +228,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 10;
+      z-index: 5;
       cursor: pointer;
     }
 
@@ -306,13 +387,18 @@
 
   <div class="header p-3">
     <center>
-    <div class="flex flex-row items-center header-area">
-      <div class="basis-3/5"><input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus placeholder="Search" /></div>
-      <div class="basis-2/5"><span id="count"></span></div>
-    </div>
-</center>
+      <div class="flex flex-row items-center header-area">
+        <div class="basis-3/5"><input type="text" name="text1" id="text" size="15" autocomplete="off" autofocus
+            placeholder="Search" /></div>
+        <div class="basis-2/5 count-title">現在の掲載数<br><span id="count"></span></div>
+      </div>
+    </center>
   </div>
-  
+
+  <div class="last_update text-xs px-1"><time datetime="2024-05-30" itemprop="modified">最終更新日：2024.05.30</time> ver
+    1.0
+  </div>
+
   <div class="area">
     <ul class="circles">
       <li></li>
@@ -334,9 +420,60 @@
 
   </div>
 
+  <!-- ポップアップ用のoverlay -->
+  <div id="overlay"></div>
+
+  <!-- 使い方 -->
+  <div id="beginner"><span id="closed-btn">×</span>
+    <h3 class="text-2xl text-center"><i class="fa-solid fa-user"></i> はじめに</h3>
+
+    <div class="overflow-y-scroll overview mt-5 mx-2">
+      <img src="./images/fish.jpg" width="100%" alt="魚の写真">
+
+      <h3 class="text-2xl mt-5" id="manual_h3">魚偏の漢字を集めよう！</h3>
+      <p class="mt-5">世界には様々な国や地形があります。</p>
+      <p class="mt-5">日本とは、どんな違いがあるでしょうか？</p>
+      <p class="mt-5">日本と同じ緯度、経度の国々は？</p>
+      <p class="mt-5">赤道直下の国々は？</p>
+      <p class="mt-5">世界の山、山脈、半島はどのような特徴があるでしょうか？</p>
+
+      <p class="mt-5">齋藤　仁志. </p>
+    </div>
+
+  </div>
+
+  <!-- 使い方 -->
+  <div id="manual"><span id="closed-btn2">×</span>
+    <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> 使い方</h3>
+
+    <div class="overflow-y-scroll overview mt-5 mx-2">
+
+      <h3 class="text-2xl mt-5" id="manual_h3">魚偏の漢字を集めよう！</h3>
+      <p class="mt-5">世界には様々な国や地形があります。</p>
+      <p class="mt-5">日本とは、どんな違いがあるでしょうか？</p>
+      <p class="mt-5">日本と同じ緯度、経度の国々は？</p>
+      <p class="mt-5">赤道直下の国々は？</p>
+      <p class="mt-5">世界の山、山脈、半島はどのような特徴があるでしょうか？</p>
+
+      <h3 class="text-2xl mt-7" id="manual_h3">インストール方法</h3>
+      <p class="mt-5">PWAに対応しているので、iPhone、Androidともに、WEBブラウザの「ホーム画面に追加」からインストールできます。</p>
+      <img src="./images/install.jpg" width="100%" class="mt-5" alt="インストール方法の画像">
+
+      <h3 class="text-2xl mt-7" id="manual_h3">検索ボタン</h3>
+      <p class="mt-5">ワールドカップやオリンピックで、世界中の選手が登場します。</p>
+      <p class="mt-5">「この国はどこらへんにあるんだろう？」</p>
+      <p class="mt-5">左下の検索ボタンより、検索することができます！</p>
+
+
+      <p class="mt-5">齋藤　仁志. </p>
+    </div>
+
+  </div>
+
+
   <div class="sns-fb">
 
-    <div class="fb-share-button" data-href="https://math-world2s.netlify.app/" data-layout="button_count"
+    <div class="fb-share-button" data-href="https://fish-kanji.netlify.app/" data-layout="button_count"
       data-size="small"></div>
 
   </div>
@@ -348,12 +485,16 @@
   <!-- フッター -->
   <div id="footer" class="footer p-2 text-center">
     <div class="grid gap-4 grid-cols-3 grid-rows-1">
-      <div class="search-btn"><i class="fa-solid fa-user"></i> はじめに</div>
-        <div><i class="fa-solid fa-book-open"></i> 使い方</div>
-      <div class="manual-btn"><i class="fa-solid fa-envelope"></i> 投　稿</div>
+      <div class="beginner-btn"><i class="fa-solid fa-user"></i> はじめに</div>
+      <div class="manual-btn"><i class="fa-solid fa-book-open"></i> 使い方</div>
+      <a href="" target="_blank">
+        <div class="post"><i class="fa-solid fa-envelope"></i> 投　稿</div>
+      </a>
     </div>
     <p class="text-xs"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
-      <i class="fa-regular fa-copyright"></i> <a href="https://code4ichinomiya.github.io/" target="_blank">Code for Ichinomiya</a>.</p>
+      <i class="fa-regular fa-copyright"></i> <a href="https://code4ichinomiya.github.io/" target="_blank">Code for
+        Ichinomiya</a>.
+    </p>
 
   </div>
 
@@ -443,6 +584,40 @@
       }
 
     );
+
+    /* 使い方のポップアップ表示 */
+    const beginner_btn = document.querySelector('.beginner-btn');
+    const manual_btn = document.querySelector('.manual-btn');
+    const overlay = document.querySelector('#overlay');
+
+    beginner_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#beginner').fadeIn();
+    });
+
+    manual_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#manual').fadeIn();
+    });
+
+    overlay.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#beginner').fadeOut();
+      $('#manual').fadeOut();
+    });
+
+    const closed_btn = document.querySelector("#closed-btn");
+    const closed_btn2 = document.querySelector("#closed-btn2");
+
+    closed_btn.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#beginner').fadeOut();
+    });
+
+    closed_btn2.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#manual').fadeOut();
+    });
 
   </script>
 
