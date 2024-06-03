@@ -115,11 +115,24 @@
     }
 
     .table {
+      position: relative;
       padding: 10px;
       margin: 10px 0 10px 0;
       border: 1px solid #000000;
       border-radius: .5em;
       width: 100%;
+    }
+
+    #gpt {
+      color: red;
+      font-weight: 900;
+    }
+
+    #update {
+      right: 5px;
+      bottom: 5px;
+      position: absolute;
+      color: #9fa0a0;
     }
 
     #overlay {
@@ -188,7 +201,8 @@
       padding-bottom: 3px;
     }
 
-    .beginner-btn, .manual-btn{
+    .beginner-btn,
+    .manual-btn {
       cursor: pointer;
     }
 
@@ -365,7 +379,6 @@
       }
 
     }
-
   </style>
 
   <link rel="manifest" href="./manifest.json">
@@ -399,7 +412,8 @@
         <div class="basis-2/5 count-title">現在の掲載数<br><span id="count"></span></div>
       </div>
     </center>
-    <div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time> ver 1.1</div>
+    <div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time> ver
+      1.1</div>
   </div>
 
   <div class="area">
@@ -504,6 +518,7 @@
 
     const result = document.querySelector("#result");
     const count = document.querySelector("#count");
+    let gpt;
 
     result.innerHTML = "";
 
@@ -528,7 +543,14 @@
 
       for (let i = 0; i < max; i++) {
 
-        result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + '</div>';
+        if (data[i].ai == "y") {
+          gpt = "◯";
+        }
+        else {
+          gpt = "×";
+        }
+
+        result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + "ChatGPT：<span id='gpt'>" + gpt + "</span><span id='update'>データ更新日：" + data[i].update + '</span></div>';
 
       };
 
@@ -556,7 +578,14 @@
 
             if (data[j].word.indexOf(kensaku) != -1 || data[j].yomi.indexOf(kensaku) != -1 || data[j].meaning.indexOf(kensaku) != -1) {
 
-              result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[j].word + '</div><div class="text-3xl col-span-3 ...">' + data[j].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[j].meaning + '</div>';
+              if (data[j].ai == "y") {
+                gpt = "◯";
+              }
+              else {
+                gpt = "×";
+              }
+
+              result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[j].word + '</div><div class="text-3xl col-span-3 ...">' + data[j].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[j].meaning + "ChatGPT：<span id='gpt'>" + gpt + "</span><span id='update'>データ更新日：" + data[j].update + '</span></div>';
 
               count += 1;
 
@@ -577,7 +606,14 @@
 
           for (let i = 0; i < max; i++) {
 
-            result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + '</div>';
+            if (data[i].ai == "y") {
+              gpt = "◯";
+            }
+            else {
+              gpt = "×";
+            }
+
+            result.innerHTML += '<div class="table grid grid-rows-3 grid-cols-3 grid-flow-col gap-2 items-center"><div class="item_title text-8xl row-span-3 ...">' + data[i].word + '</div><div class="text-3xl col-span-3 ...">' + data[i].yomi + '</div><div class="row-span-2 col-span-3 ...">' + data[i].meaning + "ChatGPT：<span id='gpt'>" + gpt + "</span><span id='update'>データ更新日：" + data[i].update + '</span></div>';
 
           };
 
