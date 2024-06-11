@@ -16,8 +16,8 @@
   <meta name="twitter:image" content="https://japanese-math-door.netlify.app/images/ogp.jpg" />
   <meta name="author" content="Saito Hitoshi">
   <meta name="keywords" content="和算,算数,数学,江戸時代,鎖国,鎖国文化" />
-  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
-  <link rel="icon" href="./images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.jpg">
+  <link rel="icon" href="./images/apple-touch-icon.jpg">
 
   <!-- tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -94,15 +94,15 @@
       max-width: 600px;
     }
 
-    /*.last_update {
-      position: absolute;
+    .last_update {
+      position: fixed;
       color: #000000;
-      top: 75px;
+      top: 60px;
       right: 3px;
       z-index: 1;
       cursor: pointer;
       background: rgba(255, 255, 255, .7);
-    }*/
+    }
 
     input {
       color: rgba(0, 119, 184, 0.5);
@@ -428,10 +428,9 @@
 
   <div class="header p-3">
     <center>
-      <h1 class="text-2xl">和算の扉</h1>
+      <h1 class="text-3xl"><i class="fa-solid fa-earth-europe"></i> 和算の扉 <i class="fa-solid fa-dungeon"></i></h1>
     </center>
-    <!--<div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time> ver
-      1.1</div>-->
+    <div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time></div>
   </div>
 
   <div class="area">
