@@ -1,0 +1,598 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<title>和算の扉</title>
+
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+  <meta charset="UTF-8" name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta property="og:title" content="和算の扉" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://japanese-math-door.netlify.app/images/ogp.jpg" />
+  <meta name="description"
+    content="江戸時代、鎖国文化の中で広がったものの一つに和算があります。日本独自の文化ですが、その計算力とみるや、海外と引けを取らないことを知りました。文献から学んで、アプリケーションという形に仕上げました。" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="和算の扉" />
+  <meta name="twitter:image" content="https://japanese-math-door.netlify.app/images/ogp.jpg" />
+  <meta name="author" content="Saito Hitoshi">
+  <meta name="keywords" content="和算,算数,数学,江戸時代,鎖国,鎖国文化" />
+  <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+  <link rel="icon" href="./images/apple-touch-icon.png">
+
+  <!-- tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+    integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Katex -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+    crossorigin="anonymous"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+    crossorigin="anonymous"></script>
+
+  <!-- $などで囲うために必要 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "\\[", right: "\\]", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #ffffff;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: "Meiryo", "Hiragino Maru Gothic Pro", sans-serif;
+
+    }
+
+    h1 {
+      color: #ffffff;
+    }
+
+    .header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 5;
+      background: #674196;
+    }
+
+    .header-area {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    /*.last_update {
+      position: absolute;
+      color: #000000;
+      top: 75px;
+      right: 3px;
+      z-index: 1;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .7);
+    }*/
+
+    input {
+      color: rgba(0, 119, 184, 0.5);
+      font-size: 1.2em;
+      font-weight: bolder;
+      height: 45px;
+      width: 100%;
+      border-radius: .3em;
+    }
+
+    input::-webkit-input-placeholder {
+      color: rgba(0, 119, 184, 0.5);
+    }
+
+    #text {
+      padding-left: 15px;
+    }
+
+    .count-title,
+    #count {
+      color: #ffffff;
+    }
+
+    .main {
+      position: absolute;
+      margin: 80px 0 0 0;
+      padding: 0 0 70px 0;
+      z-index: 2;
+      width: 90%;
+      max-width: 600px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .table {
+      position: relative;
+      padding: 10px;
+      margin: 10px 0 10px 0;
+      border: 1px solid #000000;
+      border-radius: .5em;
+      width: 100%;
+    }
+
+    #gpt {
+      color: red;
+      font-weight: bold;
+    }
+
+    #update {
+      right: 5px;
+      bottom: 5px;
+      position: absolute;
+      color: #9fa0a0;
+    }
+
+    #overlay {
+      width: 100%;
+      height: 120vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, .8);
+      display: none;
+      z-index: 10;
+    }
+
+    #beginner,
+    #manual,
+    #post,
+    #data-source,
+    #sns-share {
+      display: none;
+      height: 75%;
+      max-height: 800px;
+      left: 50%;
+      position: fixed;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      max-width: 600px;
+      z-index: 11;
+      background: #ffffff;
+      padding: .3em;
+    }
+
+    .overview {
+      height: 90%;
+    }
+
+    #closed-btn,
+    #closed-btn2,
+    #closed-btn3,
+    #closed-btn4,
+    #closed-btn5 {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border-radius: 100%;
+      color: #000000;
+      border: 1px solid #000000;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+
+    #closed-btn:hover,
+    #closed-btn2:hover,
+    #closed-btn3:hover,
+    #closed-btn4:hover,
+    #closed-btn5:hover {
+      background: rgba(0, 0, 0, .5);
+      color: #ffffff;
+      border: 1px solid #ffffff;
+    }
+
+    #manual_h3 {
+      border-bottom: 3px dotted #a0d8ef;
+      padding-bottom: 3px;
+    }
+
+    .beginner-btn,
+    .manual-btn {
+      cursor: pointer;
+    }
+
+    .footer {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      z-index: 5;
+      background: #674196;
+      color: #ffffff;
+    }
+
+    .footer a {
+      border-bottom: 1px dotted #ffffff;
+    }
+
+    .grid a {
+      border-bottom: none;
+    }
+
+    .sns-fb {
+      position: fixed;
+      left: 3px;
+      bottom: 64px;
+      z-index: 5;
+    }
+
+    .item_title {
+      color: #19448e;
+      font-weight: bolder;
+    }
+
+    .pagetop {
+      height: 40px;
+      width: 40px;
+      position: fixed;
+      right: 4px;
+      bottom: 64px;
+      background: #f08300;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .pagetop_arrow {
+      height: 10px;
+      width: 10px;
+      border-top: 3px solid #ffffff;
+      border-right: 3px solid #ffffff;
+      transform: translateY(20%) rotate(-45deg);
+    }
+
+    .area {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      z-index: 0;
+
+    }
+
+    .circles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .circles li {
+      position: absolute;
+      display: block;
+      list-style: none;
+      width: 20px;
+      height: 20px;
+      background: rgba(116, 83, 153, .8);
+      animation: animate 25s linear infinite;
+      bottom: -150px;
+
+    }
+
+    .circles li:nth-child(1) {
+      left: 25%;
+      width: 80px;
+      height: 80px;
+      animation-delay: 0s;
+    }
+
+
+    .circles li:nth-child(2) {
+      left: 10%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 2s;
+      animation-duration: 12s;
+    }
+
+    .circles li:nth-child(3) {
+      left: 70%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 4s;
+    }
+
+    .circles li:nth-child(4) {
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+
+    .circles li:nth-child(5) {
+      left: 65%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 0s;
+    }
+
+    .circles li:nth-child(6) {
+      left: 75%;
+      width: 110px;
+      height: 110px;
+      animation-delay: 3s;
+    }
+
+    .circles li:nth-child(7) {
+      left: 35%;
+      width: 150px;
+      height: 150px;
+      animation-delay: 7s;
+    }
+
+    .circles li:nth-child(8) {
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      animation-delay: 15s;
+      animation-duration: 45s;
+    }
+
+    .circles li:nth-child(9) {
+      left: 20%;
+      width: 15px;
+      height: 15px;
+      animation-delay: 2s;
+      animation-duration: 35s;
+    }
+
+    .circles li:nth-child(10) {
+      left: 85%;
+      width: 150px;
+      height: 150px;
+      animation-delay: 0s;
+      animation-duration: 11s;
+    }
+
+    @keyframes animate {
+
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+      }
+
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+      }
+
+    }
+  </style>
+
+  <link rel="manifest" href="./manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js').then(function () {
+        console.log('Service Worker Registered');
+      });
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPP84V2NHB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MPP84V2NHB');
+  </script>
+
+</head>
+
+<body>
+
+  <div class="header p-3">
+    <center>
+      <h1 class="text-2xl">和算の扉</h1>
+    </center>
+    <!--<div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time> ver
+      1.1</div>-->
+  </div>
+
+  <div class="area">
+    <ul class="circles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <div class="main">
+
+
+
+  </div>
+
+  <!-- ポップアップ用のoverlay -->
+  <div id="overlay"></div>
+
+  <!-- 使い方 -->
+  <div id="beginner"><span id="closed-btn">×</span>
+    <h3 class="text-2xl text-center"><i class="fa-solid fa-user"></i> はじめに</h3>
+
+    <div class="overflow-y-scroll overview mt-5 mx-2">
+      <img src="./images/fuji.jpg" width="100%" alt="富士山の写真">
+
+      <h3 class="text-2xl mt-5" id="manual_h3">和算の扉へようこそ！</h3>
+
+      <p class="mt-5">和算を楽しんで学べるアプリが誕生しました。</p>
+      
+      <p class="mt-5">このアプリでは、江戸時代から伝わる日本独自の数学「和算」を手軽に学ぶことができます。</p>
+
+      <h3 class="text-2xl mt-5" id="manual_h3">主な特徴</h3>
+
+      <p class="mt-5">- 豊富なコンテンツ：和算の歴史、基本的な概念、代表的な問題など、幅広い内容を網羅。</p>
+      <p class="mt-5">- インタラクティブな学習：クイズや練習問題を通じて、楽しみながら和算の知識を深めることができます。</p>
+      <p class="mt-5">- 美しいデザイン：和風の美しいデザインで、視覚的にも楽しめるアプリです。</p>
+      <p class="mt-5">- 実践的な応用：和算の知識を現代の問題解決に応用する方法も紹介。</p>
+      <p class="mt-5">和算の魅力を再発見し、数学の新たな世界に触れてみませんか？</p>
+      <p class="mt-5">齋藤　仁志. </p>
+    </div>
+
+  </div>
+
+  <!-- 使い方 -->
+  <div id="manual"><span id="closed-btn2">×</span>
+    <h3 class="text-2xl text-center"><i class="fa-solid fa-book"></i> 使い方</h3>
+
+    <div class="overflow-y-scroll overview mt-5 mx-2">
+
+      <h3 class="text-2xl mt-5" id="manual_h3">魚偏の漢字を集めよう！</h3>
+      <p class="mt-5">世界には様々な国や地形があります。</p>
+      <p class="mt-5">日本とは、どんな違いがあるでしょうか？</p>
+      <p class="mt-5">日本と同じ緯度、経度の国々は？</p>
+      <p class="mt-5">赤道直下の国々は？</p>
+      <p class="mt-5">世界の山、山脈、半島はどのような特徴があるでしょうか？</p>
+
+      <h3 class="text-2xl mt-7" id="manual_h3">インストール方法</h3>
+      <p class="mt-5">PWAに対応しているので、iPhone、Androidともに、WEBブラウザの「ホーム画面に追加」からインストールできます。</p>
+      <img src="./images/install.jpg" width="100%" class="mt-5" alt="インストール方法の画像">
+
+      <h3 class="text-2xl mt-7" id="manual_h3">検索ボタン</h3>
+      <p class="mt-5">ワールドカップやオリンピックで、世界中の選手が登場します。</p>
+      <p class="mt-5">「この国はどこらへんにあるんだろう？」</p>
+      <p class="mt-5">左下の検索ボタンより、検索することができます！</p>
+
+
+      <p class="mt-5">齋藤　仁志. </p>
+    </div>
+
+  </div>
+
+
+  <div class="sns-fb">
+
+    <div class="fb-share-button" data-href="https://japanese-math-door.netlify.app/" data-layout="button_count"
+      data-size="small"></div>
+
+  </div>
+
+  <div class="pagetop">
+    <div class="pagetop_arrow"></div>
+  </div>
+
+  <!-- フッター -->
+  <div id="footer" class="footer p-2 text-center">
+    <div class="grid gap-4 grid-cols-3 grid-rows-1">
+      <div class="beginner-btn"><i class="fa-solid fa-user"></i> はじめに</div>
+      <div class="manual-btn"><i class="fa-solid fa-book-open"></i> 使い方</div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBab9B-FnL8iatl_WA8H0023hlasjhNmo1xVYq3IVUnmqZgg/viewform"
+        target="_blank">
+        <div class="post"><i class="fa-solid fa-comments"></i> シェア</div>
+      </a>
+    </div>
+    <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
+      <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>. ver
+      1.0
+    </p>
+
+  </div>
+
+  <script type="module">
+
+    /* 使い方のポップアップ表示 */
+    const beginner_btn = document.querySelector('.beginner-btn');
+    const manual_btn = document.querySelector('.manual-btn');
+    const overlay = document.querySelector('#overlay');
+
+    beginner_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#beginner').fadeIn();
+    });
+
+    manual_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#manual').fadeIn();
+    });
+
+    overlay.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#beginner').fadeOut();
+      $('#manual').fadeOut();
+    });
+
+    const closed_btn = document.querySelector("#closed-btn");
+    const closed_btn2 = document.querySelector("#closed-btn2");
+
+    closed_btn.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#beginner').fadeOut();
+    });
+
+    closed_btn2.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#manual').fadeOut();
+    });
+
+  </script>
+
+  <!-- Facebookシェアボタン -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v19.0"
+    nonce="Pm3nh7PB"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPP84V2NHB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-MPP84V2NHB');
+  </script>
+
+</body>
+
+</html>
