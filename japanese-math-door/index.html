@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="ja">
-<title>和算の扉</title>
+<title>和算の世界</title>
 
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
   <meta charset="UTF-8" name="viewport"
@@ -58,6 +58,8 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
+
+
 
   <style>
     html {
@@ -139,11 +141,20 @@
 
     .table {
       position: relative;
-      padding: 10px;
       margin: 10px 0 10px 0;
-      border: 1px solid #000000;
+      border: 3px solid #000000;
       border-radius: .5em;
       width: 100%;
+    }
+
+    .table:before {
+      position: absolute;
+      content: '';
+      top: 4px;
+      left: 4px;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      border: 1px solid #000000;
     }
 
     #gpt {
@@ -173,7 +184,7 @@
     #manual,
     #post,
     #data-source,
-    #sns-share {
+    #share {
       display: none;
       height: 75%;
       max-height: 800px;
@@ -225,7 +236,8 @@
     }
 
     .beginner-btn,
-    .manual-btn {
+    .manual-btn,
+    .share-btn {
       cursor: pointer;
     }
 
@@ -264,7 +276,7 @@
       position: fixed;
       right: 4px;
       bottom: 64px;
-      background: #f08300;
+      background: rgba(252, 186, 3, .9);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -401,6 +413,20 @@
       }
 
     }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+
+    li {
+      list-style: none;
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
   </style>
 
   <link rel="manifest" href="./manifest.json">
@@ -428,9 +454,10 @@
 
   <div class="header p-3">
     <center>
-      <h1 class="text-3xl"><i class="fa-solid fa-earth-europe"></i> 和算の扉 <i class="fa-solid fa-dungeon"></i></h1>
+      <h1 class="text-3xl"><i class="fa-solid fa-earth-europe"></i> 和算の世界 <i class="fa-solid fa-dungeon"></i></h1>
     </center>
-    <div class="last_update text-xs px-1"><time datetime="2024-06-03" itemprop="modified">最終更新日：2024.06.03</time></div>
+    <div class="last_update text-xs px-1"><time datetime="2024-06-11" itemprop="modified">最終更新日：2024.06.11</time> ver
+      1.0</div>
   </div>
 
   <div class="area">
@@ -450,24 +477,34 @@
 
   <div class="main">
 
+    <ul>
+      <li>
+        <div class="table px-5 pt-3 pb-5">
+          <div class="item_title text-xl">日本最古の九九</div>
+          <div class="item_ex">
+            <a href="./data/mostold.jpg" data-lightbox="image" data-title="あ"><img src="./data/mostold.jpg" width="50%"></a>
+          </div>
+        </div>
+      </li>
 
+    </ul>
 
   </div>
 
   <!-- ポップアップ用のoverlay -->
   <div id="overlay"></div>
 
-  <!-- 使い方 -->
+  <!-- はじめに -->
   <div id="beginner"><span id="closed-btn">×</span>
     <h3 class="text-2xl text-center"><i class="fa-solid fa-user"></i> はじめに</h3>
 
     <div class="overflow-y-scroll overview mt-5 mx-2">
       <img src="./images/fuji.jpg" width="100%" alt="富士山の写真">
 
-      <h3 class="text-2xl mt-5" id="manual_h3">和算の扉へようこそ！</h3>
+      <h3 class="text-2xl mt-5" id="manual_h3">和算の世界へようこそ！</h3>
 
       <p class="mt-5">和算を楽しんで学べるアプリが誕生しました。</p>
-      
+
       <p class="mt-5">このアプリでは、江戸時代から伝わる日本独自の数学「和算」を手軽に学ぶことができます。</p>
 
       <h3 class="text-2xl mt-5" id="manual_h3">主な特徴</h3>
@@ -510,6 +547,23 @@
 
   </div>
 
+  <div id="share" class="text-center"><span id="closed-btn3">×</span>
+    <h3 class="text-2xl text-center mb-3"><i class="fa-regular fa-comments"></i> シェア</h3>
+
+    <div class="mt-5 h-96 text-left px-3">
+
+      <h3 class="text-2xl mb-5" id="manual_h3">アプリURL</h3>
+
+      <p class="mt-5">https://japanese-math-door.netlify.app/</p>
+
+      <h3 class="text-2xl my-5" id="manual_h3">二次元バーコード</h3>
+
+      <img src="./images/qr.jpg" alt="二次元バーコード">
+
+    </div>
+
+  </div>
+
 
   <div class="sns-fb">
 
@@ -527,14 +581,10 @@
     <div class="grid gap-4 grid-cols-3 grid-rows-1">
       <div class="beginner-btn"><i class="fa-solid fa-user"></i> はじめに</div>
       <div class="manual-btn"><i class="fa-solid fa-book-open"></i> 使い方</div>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBab9B-FnL8iatl_WA8H0023hlasjhNmo1xVYq3IVUnmqZgg/viewform"
-        target="_blank">
-        <div class="post"><i class="fa-solid fa-comments"></i> シェア</div>
-      </a>
+      <div class="share-btn"><i class="fa-solid fa-comments"></i> シェア</div>
     </div>
     <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
-      <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>. ver
-      1.0
+      <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.
     </p>
 
   </div>
@@ -544,6 +594,7 @@
     /* 使い方のポップアップ表示 */
     const beginner_btn = document.querySelector('.beginner-btn');
     const manual_btn = document.querySelector('.manual-btn');
+    const share_btn = document.querySelector('.share-btn');
     const overlay = document.querySelector('#overlay');
 
     beginner_btn.addEventListener('click', () => {
@@ -556,14 +607,21 @@
       $('#manual').fadeIn();
     });
 
+    share_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#share').fadeIn();
+    });
+
     overlay.addEventListener('click', () => {
       $('#overlay').fadeOut();
       $('#beginner').fadeOut();
       $('#manual').fadeOut();
+      $('#share').fadeOut();
     });
 
     const closed_btn = document.querySelector("#closed-btn");
     const closed_btn2 = document.querySelector("#closed-btn2");
+    const closed_btn3 = document.querySelector("#closed-btn3");
 
     closed_btn.addEventListener('click', () => {
       $('#overlay').fadeOut();
@@ -573,6 +631,11 @@
     closed_btn2.addEventListener('click', () => {
       $('#overlay').fadeOut();
       $('#manual').fadeOut();
+    });
+
+    closed_btn3.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#share').fadeOut();
     });
 
   </script>
