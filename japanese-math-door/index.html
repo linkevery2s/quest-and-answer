@@ -91,11 +91,6 @@
       background: #674196;
     }
 
-    .header-area {
-      width: 100%;
-      max-width: 600px;
-    }
-
     .last_update {
       position: fixed;
       color: #000000;
@@ -104,28 +99,6 @@
       z-index: 1;
       cursor: pointer;
       background: rgba(255, 255, 255, .7);
-    }
-
-    input {
-      color: rgba(0, 119, 184, 0.5);
-      font-size: 1.2em;
-      font-weight: bolder;
-      height: 45px;
-      width: 100%;
-      border-radius: .3em;
-    }
-
-    input::-webkit-input-placeholder {
-      color: rgba(0, 119, 184, 0.5);
-    }
-
-    #text {
-      padding-left: 15px;
-    }
-
-    .count-title,
-    #count {
-      color: #ffffff;
     }
 
     .main {
@@ -137,30 +110,6 @@
       max-width: 600px;
       left: 50%;
       transform: translate(-50%);
-    }
-
-    .table {
-      position: relative;
-      margin: 10px 0 10px 0;
-      border: 3px solid #000000;
-      border-radius: .5em;
-      width: 100%;
-    }
-
-    .table:before {
-      position: absolute;
-      content: '';
-      top: 4px;
-      left: 4px;
-      width: calc(100% - 8px);
-      height: calc(100% - 8px);
-      border: 1px solid #000000;
-      border-radius: .2em;
-    }
-
-    #gpt {
-      color: red;
-      font-weight: bold;
     }
 
     #update {
@@ -415,19 +364,6 @@
 
     }
 
-    ul {
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
-
-    li {
-      list-style: none;
-      display: inline-block;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-    }
   </style>
 
   <link rel="manifest" href="./manifest.json">
@@ -478,17 +414,11 @@
 
   <div class="main">
 
-    <ul>
-      <li>
-        <div class="table px-5 pt-3 pb-5">
-          <div class="item_title text-xl">日本最古の九九</div>
-          <div class="item_ex">
-            <a href="./data/mostold.jpg" data-lightbox="image" data-title="あ"><img src="./data/mostold.jpg" width="50%"></a>
-          </div>
-        </div>
-      </li>
+    <div class="px-5 py-3 border-double border-4 border-black rounded-xl">
+      <div class="item_title text-xl mb-3">日本最古の九九表</div>
+      <a href="./data/mostold.jpg" data-lightbox="aa" data-title="aa"><img src="./data/mostold.jpg" width="50%"></a>
 
-    </ul>
+      </div>
 
   </div>
 
@@ -641,9 +571,12 @@
 
   </script>
 
-<!-- lightbox -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
+    integrity="sha512-U9dKDqsXAE11UA9kZ0XKFyZ2gQCj+3AwZdBMni7yXSvWqLFEj8C1s7wRmWl9iyij8d5zb4wm56j4z/JVEwS77g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Facebookシェアボタン -->
   <div id="fb-root"></div>
