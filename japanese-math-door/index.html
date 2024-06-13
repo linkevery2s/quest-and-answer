@@ -131,6 +131,7 @@
     }
 
     #beginner,
+    #image-src,
     #manual,
     #post,
     #data-source,
@@ -226,7 +227,7 @@
       position: fixed;
       right: 4px;
       bottom: 64px;
-      background: rgba(252, 186, 3, .9);
+      background: rgba(252, 186, 3, 1);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -415,27 +416,27 @@
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">日本最古の九九表</div>
-      <a href="./data/mostold.jpg" data-lightbox="aa" data-title="aa"><img src="./data/mostold.jpg" width="50%"></a>
+      <span onclick="image(0);"><img src="./data/0.jpg" width="50%"></span>
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">万葉集にも九九があった？</div>
-      <a href="./data/mostold.jpg" data-lightbox="aa" data-title="aa"><img src="./data/mostold.jpg" width="50%"></a>
+      <img src="./data/0.jpg" width="50%">
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">２の平方根を求めよう！</div>
-      <a href="./data/mostold.jpg" data-lightbox="aa" data-title="aa"><img src="./data/mostold.jpg" width="50%"></a>
+      <img src="./data/0.jpg" width="50%">
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">円周率の計算</div>
-      <a href="./data/mostold.jpg" data-lightbox="aa" data-title="aa"><img src="./data/mostold.jpg" width="50%"></a>
+      <img src="./data/0.jpg" width="50%">
 
-    </div>   
+    </div>
 
   </div>
 
@@ -457,10 +458,9 @@
 
       <h3 class="text-2xl mt-5" id="manual_h3">主な特徴</h3>
 
-      <p class="mt-5">- 豊富なコンテンツ：和算の歴史、基本的な概念、代表的な問題など、幅広い内容を網羅。</p>
-      <p class="mt-5">- インタラクティブな学習：クイズや練習問題を通じて、楽しみながら和算の知識を深めることができます。</p>
-      <p class="mt-5">- 美しいデザイン：和風の美しいデザインで、視覚的にも楽しめるアプリです。</p>
-      <p class="mt-5">- 実践的な応用：和算の知識を現代の問題解決に応用する方法も紹介。</p>
+      <p class="mt-5">国立国会図書館などの文献を参考に、和算の計算方法や算額の問題、解法を掲載しています。</p>
+      <p class="mt-5">現代の解き方、和算の解き方を比べることができます。</p>
+      <p class="mt-5">生成AIがブームになっている現在、和算の問題がAIにも解けるかどうか、試行しました。</p>
       <p class="mt-5">和算の魅力を再発見し、数学の新たな世界に触れてみませんか？</p>
       <p class="mt-5">齋藤　仁志. </p>
     </div>
@@ -473,22 +473,15 @@
 
     <div class="overflow-y-scroll overview mt-5 mx-2">
 
-      <h3 class="text-2xl mt-5" id="manual_h3">魚偏の漢字を集めよう！</h3>
-      <p class="mt-5">世界には様々な国や地形があります。</p>
-      <p class="mt-5">日本とは、どんな違いがあるでしょうか？</p>
-      <p class="mt-5">日本と同じ緯度、経度の国々は？</p>
-      <p class="mt-5">赤道直下の国々は？</p>
-      <p class="mt-5">世界の山、山脈、半島はどのような特徴があるでしょうか？</p>
+      <h3 class="text-2xl mt-5" id="manual_h3">和算の計算手法や算額を掲載</h3>
+      <p class="mt-5">例えば、日本最古の九九表や、平方根の求め方、円周率の計算手法など、江戸時代に栄えた和算ならではの情報を掲載しています。</p>
+      <p class="mt-5">各コンテンツの画像をタップすると、拡大表示されます。</p>
+      <p class="mt-5">詳細ボタンを押すと、詳しい解説を見ることができます。</p>
+      <p class="mt-5">各々のコンテンツは独立しているので、自分の興味のある項目を調べてみてください。</p>
 
       <h3 class="text-2xl mt-7" id="manual_h3">インストール方法</h3>
       <p class="mt-5">PWAに対応しているので、iPhone、Androidともに、WEBブラウザの「ホーム画面に追加」からインストールできます。</p>
       <img src="./images/install.jpg" width="100%" class="mt-5" alt="インストール方法の画像">
-
-      <h3 class="text-2xl mt-7" id="manual_h3">検索ボタン</h3>
-      <p class="mt-5">ワールドカップやオリンピックで、世界中の選手が登場します。</p>
-      <p class="mt-5">「この国はどこらへんにあるんだろう？」</p>
-      <p class="mt-5">左下の検索ボタンより、検索することができます！</p>
-
 
       <p class="mt-5">齋藤　仁志. </p>
     </div>
@@ -512,6 +505,17 @@
 
   </div>
 
+  <!-- image popup-->
+  <div id="image-src"><span id="closed-btn4">×</span>
+
+    <div class="overflow-y-scroll overview mt-10 mx-2">
+      <div id="image-link"></div>
+      <div id="literature"></div>
+      <div id="source"></div>
+
+    </div>
+
+  </div>
 
   <div class="sns-fb">
 
@@ -539,6 +543,15 @@
 
   <script type="module">
 
+    const topButton = document.querySelector(".pagetop");
+
+    topButton.addEventListener("click", () => {
+
+      $('body,html').animate({ scrollTop: 0 }, 1000);
+      return false;
+
+    });
+
     /* 使い方のポップアップ表示 */
     const beginner_btn = document.querySelector('.beginner-btn');
     const manual_btn = document.querySelector('.manual-btn');
@@ -565,11 +578,13 @@
       $('#beginner').fadeOut();
       $('#manual').fadeOut();
       $('#share').fadeOut();
+      $('#image-src').fadeOut();
     });
 
     const closed_btn = document.querySelector("#closed-btn");
     const closed_btn2 = document.querySelector("#closed-btn2");
     const closed_btn3 = document.querySelector("#closed-btn3");
+    const closed_btn4 = document.querySelector("#closed-btn4");
 
     closed_btn.addEventListener('click', () => {
       $('#overlay').fadeOut();
@@ -586,14 +601,41 @@
       $('#share').fadeOut();
     });
 
+    closed_btn4.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#image-src').fadeOut();
+    });
+
+    /* 画像の拡大表示 */
+    const image_link = document.querySelector("#image-link");
+    const literature = document.querySelector("#literature");
+    const autor = document.querySelector("#autor");
+    const source = document.querySelector("#source");
+    const res = await fetch("./data/src.json");
+    const data = await res.json();
+
+    console.log(data);
+
+    window.image = (x) => {
+
+      image_link.innerHTML = '<img src="./data/' + x + '.jpg" width="100%">';
+
+      literature.innerHTML = "『" + data[x].literature + "』 " + data[x].autor;
+      source.innerHTML = "出典：" + data[x].source;
+
+      $('#overlay').fadeIn();
+      $('#image-src').fadeIn();
+
+    }
+
   </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
     integrity="sha512-U9dKDqsXAE11UA9kZ0XKFyZ2gQCj+3AwZdBMni7yXSvWqLFEj8C1s7wRmWl9iyij8d5zb4wm56j4z/JVEwS77g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
     integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />-->
 
   <!-- Facebookシェアボタン -->
   <div id="fb-root"></div>
