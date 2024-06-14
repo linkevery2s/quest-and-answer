@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="./images/apple-touch-icon.jpg">
   <link rel="icon" href="./images/apple-touch-icon.jpg">
 
-  <!-- tailwind -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font Awesome -->
@@ -58,8 +58,6 @@
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
-
-
 
   <style>
     html {
@@ -227,7 +225,7 @@
       position: fixed;
       right: 4px;
       bottom: 64px;
-      background: rgba(252, 186, 3, 1);
+      background: rgba(240, 131, 0, .8);
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -375,16 +373,6 @@
     }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPP84V2NHB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MPP84V2NHB');
-  </script>
-
 </head>
 
 <body>
@@ -416,25 +404,32 @@
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">日本最古の九九表</div>
-      <span onclick="image(0);"><img src="./data/0.jpg" width="50%"></span>
+
+      <div class="grid grid-cols-2 gap-2">
+        <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img src="./data/kuku.jpg" width="100%"></a></div>
+        <div><img src="./data/kuku.jpg" width="100%"></div>
+      </div>
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">万葉集にも九九があった？</div>
-      <img src="./data/0.jpg" width="50%">
+      <div class="item_title text-xl mb-3">鶴亀算</div>
+      <div class="grid grid-cols-2 gap-2">
+        <div><a href="./data/turukame.jpg" data-lightbox="turukame" data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg" width="100%"></a></div>
+        <div><img src="./data/turukame.jpg" width="100%"></div>
+      </div>
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">２の平方根を求めよう！</div>
-      <img src="./data/0.jpg" width="50%">
+      <img src="./data/kuku.jpg" width="50%">
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
       <div class="item_title text-xl mb-3">円周率の計算</div>
-      <img src="./data/0.jpg" width="50%">
+      <img src="./data/kuku.jpg" width="50%">
 
     </div>
 
@@ -505,7 +500,7 @@
 
   </div>
 
-  <!-- image popup-->
+  <!-- image popup
   <div id="image-src"><span id="closed-btn4">×</span>
 
     <div class="overflow-y-scroll overview mt-10 mx-2">
@@ -515,7 +510,7 @@
 
     </div>
 
-  </div>
+  </div>-->
 
   <div class="sns-fb">
 
@@ -578,7 +573,7 @@
       $('#beginner').fadeOut();
       $('#manual').fadeOut();
       $('#share').fadeOut();
-      $('#image-src').fadeOut();
+      //$('#image-src').fadeOut();
     });
 
     const closed_btn = document.querySelector("#closed-btn");
@@ -601,12 +596,12 @@
       $('#share').fadeOut();
     });
 
-    closed_btn4.addEventListener('click', () => {
+    /*closed_btn4.addEventListener('click', () => {
       $('#overlay').fadeOut();
       $('#image-src').fadeOut();
     });
 
-    /* 画像の拡大表示 */
+    画像の拡大表示 
     const image_link = document.querySelector("#image-link");
     const literature = document.querySelector("#literature");
     const autor = document.querySelector("#autor");
@@ -626,16 +621,16 @@
       $('#overlay').fadeIn();
       $('#image-src').fadeIn();
 
-    }
+    }*/
 
   </script>
 
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
     integrity="sha512-U9dKDqsXAE11UA9kZ0XKFyZ2gQCj+3AwZdBMni7yXSvWqLFEj8C1s7wRmWl9iyij8d5zb4wm56j4z/JVEwS77g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
     integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Facebookシェアボタン -->
   <div id="fb-root"></div>
