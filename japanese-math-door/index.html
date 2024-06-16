@@ -110,6 +110,10 @@
       transform: translate(-50%);
     }
 
+    .main img {
+      border: 1px solid #000000;
+    }
+
     #update {
       right: 5px;
       bottom: 5px;
@@ -133,7 +137,8 @@
     #manual,
     #post,
     #data-source,
-    #share {
+    #share,
+    #search {
       display: none;
       height: 75%;
       max-height: 800px;
@@ -146,6 +151,7 @@
       z-index: 11;
       background: #ffffff;
       padding: .3em;
+      border-radius: .3em;
     }
 
     .overview {
@@ -186,8 +192,23 @@
 
     .beginner-btn,
     .manual-btn,
-    .share-btn {
+    .share-btn,
+    .search-btn {
       cursor: pointer;
+    }
+
+    .share-btn{
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      border: 1px solid #ffffff;
+      background: transparent;
+      color: #ffffff;
+      padding: .5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1.2;
+      border-radius: 100%;
     }
 
     .footer {
@@ -379,10 +400,13 @@
 
   <div class="header p-3">
     <center>
-      <h1 class="text-3xl"><i class="fa-solid fa-earth-europe"></i> 和算の世界 <i class="fa-solid fa-dungeon"></i></h1>
+      <h1 class="text-3xl">和算の世界</h1>
     </center>
     <div class="last_update text-xs px-1"><time datetime="2024-06-11" itemprop="modified">最終更新日：2024.06.11</time> ver
       1.0</div>
+
+    <div class="share-btn"><i class="fa-regular fa-comments"></i></div>
+
   </div>
 
   <div class="area">
@@ -403,20 +427,23 @@
   <div class="main">
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">日本最古の九九表</div>
-
+      <div class="item_title text-xl mb-3">鶴亀算</div>
       <div class="grid grid-cols-2 gap-2">
-        <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img src="./data/kuku.jpg" width="100%"></a></div>
-        <div><img src="./data/kuku.jpg" width="100%"></div>
+        <div><a href="./data/turukame.jpg" data-lightbox="turukame"
+            data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg"
+              width="100%"></a></div>
+        <div><img src="./data/turukame.jpg" width="100%"></div>
       </div>
 
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">鶴亀算</div>
+      <div class="item_title text-xl mb-3">日本最古の九九表</div>
+
       <div class="grid grid-cols-2 gap-2">
-        <div><a href="./data/turukame.jpg" data-lightbox="turukame" data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg" width="100%"></a></div>
-        <div><img src="./data/turukame.jpg" width="100%"></div>
+        <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img
+              src="./data/kuku.jpg" width="100%"></a></div>
+        <div><img src="./data/kuku.jpg" width="100%"></div>
       </div>
 
     </div>
@@ -500,17 +527,24 @@
 
   </div>
 
-  <!-- image popup
+  <div id="search" class="text-center"><span id="closed-btn5">×</span>
+    <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-search"></i> 検　索</h3>
+
+    <div class="mt-5 h-96 text-left px-3">
+
+    </div>
+
+  </div>
+
+  <!-- image ar vr popup -->
   <div id="image-src"><span id="closed-btn4">×</span>
 
     <div class="overflow-y-scroll overview mt-10 mx-2">
       <div id="image-link"></div>
-      <div id="literature"></div>
-      <div id="source"></div>
 
     </div>
 
-  </div>-->
+  </div>
 
   <div class="sns-fb">
 
@@ -528,10 +562,10 @@
     <div class="grid gap-4 grid-cols-3 grid-rows-1">
       <div class="beginner-btn"><i class="fa-solid fa-user"></i> はじめに</div>
       <div class="manual-btn"><i class="fa-solid fa-book-open"></i> 使い方</div>
-      <div class="share-btn"><i class="fa-solid fa-comments"></i> シェア</div>
+      <div class="search-btn"><i class="fa-solid fa-search"></i> 検　索</div>
     </div>
     <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
-      <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>.
+      <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>. <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-WMoBJRTdA1bmN_SmQ-bsNGeLs1l737d3c9BUNuErjH-KBw/viewform" target="_blank">お問い合わせ</a>
     </p>
 
   </div>
@@ -547,10 +581,11 @@
 
     });
 
-    /* 使い方のポップアップ表示 */
+    /* メニューポップアップ表示 */
     const beginner_btn = document.querySelector('.beginner-btn');
     const manual_btn = document.querySelector('.manual-btn');
     const share_btn = document.querySelector('.share-btn');
+    const search_btn = document.querySelector('.search-btn');
     const overlay = document.querySelector('#overlay');
 
     beginner_btn.addEventListener('click', () => {
@@ -568,18 +603,25 @@
       $('#share').fadeIn();
     });
 
+    search_btn.addEventListener('click', () => {
+      $('#overlay').fadeIn();
+      $('#search').fadeIn();
+    });
+
     overlay.addEventListener('click', () => {
       $('#overlay').fadeOut();
       $('#beginner').fadeOut();
       $('#manual').fadeOut();
       $('#share').fadeOut();
-      //$('#image-src').fadeOut();
+      $('#earch').fadeOut();
+      $('#image-src').fadeOut();
     });
 
     const closed_btn = document.querySelector("#closed-btn");
     const closed_btn2 = document.querySelector("#closed-btn2");
     const closed_btn3 = document.querySelector("#closed-btn3");
     const closed_btn4 = document.querySelector("#closed-btn4");
+    const closed_btn5 = document.querySelector("#closed-btn5");
 
     closed_btn.addEventListener('click', () => {
       $('#overlay').fadeOut();
@@ -596,32 +638,27 @@
       $('#share').fadeOut();
     });
 
-    /*closed_btn4.addEventListener('click', () => {
+    closed_btn4.addEventListener('click', () => {
       $('#overlay').fadeOut();
       $('#image-src').fadeOut();
     });
 
-    画像の拡大表示 
-    const image_link = document.querySelector("#image-link");
-    const literature = document.querySelector("#literature");
-    const autor = document.querySelector("#autor");
-    const source = document.querySelector("#source");
-    const res = await fetch("./data/src.json");
-    const data = await res.json();
+    closed_btn5.addEventListener('click', () => {
+      $('#overlay').fadeOut();
+      $('#search').fadeOut();
+    });
 
-    console.log(data);
+    // 画像の拡大表示 
+    const image_link = document.querySelector("#image-link");
 
     window.image = (x) => {
 
       image_link.innerHTML = '<img src="./data/' + x + '.jpg" width="100%">';
 
-      literature.innerHTML = "『" + data[x].literature + "』 " + data[x].autor;
-      source.innerHTML = "出典：" + data[x].source;
-
       $('#overlay').fadeIn();
       $('#image-src').fadeIn();
 
-    }*/
+    }
 
   </script>
 
