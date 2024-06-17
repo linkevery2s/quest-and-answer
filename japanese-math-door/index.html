@@ -55,10 +55,6 @@
     });
   </script>
 
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-
   <style>
     html {
       width: 100%;
@@ -114,11 +110,11 @@
       border: 1px solid #000000;
     }
 
-    .main time{
-      position: absolute;
+    #update_time {
       color: #95949a;
-      top: 10px;
-      right: 10px;
+      right: 5px;
+      top: 5px;
+      position: absolute;
     }
 
     #update {
@@ -473,33 +469,38 @@
 
   <div class="main">
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算</div>
-      <time class = "text-xs" datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="turukame">
+      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+      </div>
+      <div class="item_title text-xl my-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算
+      </div>
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/turukame.jpg" data-lightbox="turukame"
-            data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg"
-              width="100%" alt="鶴亀算の画像"></a></div>
+            data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg" width="100%"
+              alt="鶴亀算の画像"></a></div>
         <div><img src="./data/turukame.jpg" width="100%"></div>
       </div>
 
     </div>
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3"><img src="./images/icon/koyo.svg" id="img_midashi" alt="koyoのアイコン"> からす算</div>
-      <time class = "text-xs" datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="karasu">
+      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+      </div>
+      <div class="item_title text-xl my-3"><img src="./images/icon/koyo.svg" id="img_midashi" alt="koyoのアイコン"> からす算
+      </div>
       <div class="grid grid-cols-2 gap-2">
-        <div><a href="./data/karasu.jpg" data-lightbox="karasu"
-            data-title="塵劫記（じんこうき）吉田光由<br>出典：国立国会図書館デジタルコレクション"><img src="./data/karasu.jpg"
-              width="100%" alt="からす算の画像"></a></div>
+        <div><a href="./data/karasu.jpg" data-lightbox="karasu" data-title="塵劫記（じんこうき）吉田光由<br>出典：国立国会図書館デジタルコレクション"><img
+              src="./data/karasu.jpg" width="100%" alt="からす算の画像"></a></div>
         <div><img src="./data/karasu.jpg" width="100%"></div>
       </div>
 
     </div>
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3"><img src="./images/icon/mokko.svg" id="img_midashi" alt="mokkoのアイコン"> 日本最古の九九表</div>
-      <time class = "text-xs" datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="kuku">
+      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+      </div>
+      <div class="item_title text-xl my-3"><img src="./images/icon/mokko.svg" id="img_midashi" alt="mokkoのアイコン">
+        日本最古の九九表</div>
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img
               src="./data/kuku.jpg" alt="日本最古の九九表" width="100%"></a></div>
@@ -753,12 +754,23 @@
 
   </script>
 
+  <!-- lightbox2 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
     integrity="sha512-U9dKDqsXAE11UA9kZ0XKFyZ2gQCj+3AwZdBMni7yXSvWqLFEj8C1s7wRmWl9iyij8d5zb4wm56j4z/JVEwS77g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
     integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- lightbox2 options-->
+  <script>
+    lightbox.option({
+      "alwaysShowNavOnTouchDevices": true,
+      "disableScrolling": true
+    })
+
+  </script>
+
 
   <!-- Facebookシェアボタン -->
   <div id="fb-root"></div>
