@@ -114,6 +114,13 @@
       border: 1px solid #000000;
     }
 
+    .main time{
+      position: absolute;
+      color: #95949a;
+      top: 10px;
+      right: 10px;
+    }
+
     #update {
       right: 5px;
       bottom: 5px;
@@ -273,6 +280,7 @@
 
     #img_midashi {
       display: flex;
+      width: 30px;
     }
 
     .pagetop {
@@ -437,8 +445,9 @@
     <center>
       <h1 class="text-3xl">和算の世界</h1>
     </center>
-    <div class="last_update text-xs px-1"><time datetime="2024-06-11" itemprop="modified">最終更新日：2024.06.11</time> ver
-      1.0</div>
+
+    <!--<div class="last_update text-xs px-1"><time datetime="2024-06-11" itemprop="modified">最終更新日：2024.06.11</time> ver
+      1.0</div>-->
 
     <div class="zoom-btn"><i class="fa-solid fa-xl fa-expand"></i></div>
     <div class="share-btn"><i class="fa-regular fa-comments"></i></div>
@@ -465,7 +474,8 @@
   <div class="main">
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3"><img src="./images/icon/h_rakugo.svg" id="img_midashi" width="32px" alt="rakugoのアイコン"> 鶴亀算</div>
+      <div class="item_title text-xl mb-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算</div>
+      <time class = "text-xs" datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/turukame.jpg" data-lightbox="turukame"
             data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg"
@@ -476,7 +486,18 @@
     </div>
 
     <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">日本最古の九九表</div>
+      <div class="item_title text-xl mb-3"><img src="./images/icon/koyo.svg" id="img_midashi" alt="koyoのアイコン"> からす算</div>
+      <div class="grid grid-cols-2 gap-2">
+        <div><a href="./data/karasu.jpg" data-lightbox="karasu"
+            data-title="塵劫記（じんこうき）吉田光由<br>出典：国立国会図書館デジタルコレクション"><img src="./data/karasu.jpg"
+              width="100%" alt="からす算の画像"></a></div>
+        <div><img src="./data/karasu.jpg" width="100%"></div>
+      </div>
+
+    </div>
+
+    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
+      <div class="item_title text-xl mb-3"><img src="./images/icon/mokko.svg" id="img_midashi" alt="mokkoのアイコン"> 日本最古の九九表</div>
 
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img
@@ -605,7 +626,7 @@
     <p class="text-xs mt-1"><a href="https://github.com/linkevery2s/quest-and-answer" target="_blank">src on GitHub</a>.
       <i class="fa-regular fa-copyright"></i> <a href="https://hitoshi2s.netlify.app/" target="_blank">齋藤 仁志</a>. <a
         href="https://docs.google.com/forms/d/e/1FAIpQLSf-WMoBJRTdA1bmN_SmQ-bsNGeLs1l737d3c9BUNuErjH-KBw/viewform"
-        target="_blank">お問い合わせ</a>
+        target="_blank">お問い合わせ</a> ver 1.0
     </p>
 
   </div>
@@ -682,7 +703,7 @@
       $('#beginner').fadeOut();
       $('#manual').fadeOut();
       $('#share').fadeOut();
-      $('#earch').fadeOut();
+      $('#search').fadeOut();
       $('#image-src').fadeOut();
     });
 
