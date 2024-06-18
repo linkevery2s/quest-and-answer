@@ -112,16 +112,22 @@
 
     #update_time {
       color: #95949a;
-      right: 5px;
-      top: 5px;
-      position: absolute;
     }
 
-    #update {
+    /*#update {
       right: 5px;
       bottom: 5px;
       position: absolute;
       color: #9fa0a0;
+    }*/
+
+    .kaisetu-btn {
+      color: #ffffff;
+      background: #e2041b;
+    }
+
+    .kaisetu {
+      display: none;
     }
 
     #overlay {
@@ -302,7 +308,7 @@
       transform: translateY(20%) rotate(-45deg);
     }
 
-/*    .area {
+    /*    .area {
       width: 100%;
       height: 100vh;
       position: fixed;
@@ -423,7 +429,6 @@
 
     }
 */
-
   </style>
 
   <link rel="manifest" href="./manifest.json">
@@ -471,24 +476,40 @@
 
   <div class="main">
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="turukame">
-      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
+    <div class="px-5 pt-3 pb-1 mb-5 border-double border-4 border-black rounded-xl relative" id="turukame">
+      <div class="item_title text-xl mb-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算
       </div>
-      <div class="item_title text-xl my-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算
-      </div>
-      <div class="grid grid-cols-2 gap-2">
+      <div class="grid grid-cols-2 gap-2 mb-5">
         <div><a href="./data/turukame.jpg" data-lightbox="turukame"
             data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション"><img src="./data/turukame.jpg" width="100%"
               alt="鶴亀算の画像"></a></div>
         <div><img src="./data/turukame.jpg" width="100%"></div>
       </div>
 
+      <span class="kaisetu-btn px-3 py-2 my-3 rounded-lg" onclick="below(0)">解 説 <i
+          class="fa-solid fa-circle-chevron-down"></i></span>
+
+      <div id="0" class="kaisetu mt-3">
+        <p class="mb-3">☆連立方程式による解法☆</p>
+        <p>鶴を$x$羽、亀を$y$匹とする。</p>
+        <p class="my-3">鶴と亀の合計が$100$羽（匹）いるので、</p>
+        <p>$x + y = 100 ••• ①$</p>
+        <p class="my-3">足の数の合計が$272$本なので、</p>
+        <p>$ 2x + 4y = 272 ••• ②$</p>
+        <p class="my-3">①、②の連立方程式を解くと、</p>
+        <p>$x = 64、y = 36$</p>
+        <p class="mt-3">よって、鶴 $64$ 羽、亀 $36$ 匹となる。</p>
+
+      </div>
+
+      <div id="update_time" class="text-xs text-right mt-3"><time datetime="2024-06-17"
+          itemprop="modified">データ更新：2024.06.17</time>
+      </div>
+
     </div>
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="karasu">
-      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
-      </div>
-      <div class="item_title text-xl my-3"><img src="./images/icon/koyo.svg" id="img_midashi" alt="koyoのアイコン"> からす算
+    <div class="px-5 pt-3 pb-1 mb-5 border-double border-4 border-black rounded-xl relative" id="karasu">
+      <div class="item_title text-xl mb-3"><img src="./images/icon/koyo.svg" id="img_midashi" alt="koyoのアイコン"> からす算
       </div>
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/karasu.jpg" data-lightbox="karasu" data-title="塵劫記（じんこうき）吉田光由<br>出典：国立国会図書館デジタルコレクション"><img
@@ -496,12 +517,14 @@
         <div><img src="./data/karasu.jpg" width="100%"></div>
       </div>
 
+      <div id="update_time" class="text-xs text-right"><time datetime="2024-06-17"
+          itemprop="modified">データ更新：2024.06.17</time>
+      </div>
+
     </div>
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl relative" id="kuku">
-      <div id="update_time" class="text-xs"><time datetime="2024-06-17" itemprop="modified">データ更新：2024.06.17</time>
-      </div>
-      <div class="item_title text-xl my-3"><img src="./images/icon/mokko.svg" id="img_midashi" alt="mokkoのアイコン">
+    <div class="px-5 pt-3 pb-1 mb-5 border-double border-4 border-black rounded-xl relative" id="kuku">
+      <div class="item_title text-xl mb-3"><img src="./images/icon/mokko.svg" id="img_midashi" alt="mokkoのアイコン">
         日本最古の九九表</div>
       <div class="grid grid-cols-2 gap-2">
         <div><a href="./data/kuku.jpg" data-lightbox="kuku" data-title="口遊（くちずさみ）源為憲<br>出典：国立国会図書館デジタルコレクション"><img
@@ -509,19 +532,12 @@
         <div><img src="./data/kuku.jpg" width="100%"></div>
       </div>
 
-    </div>
-
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">２の平方根を求めよう！</div>
-      <img src="./data/kuku.jpg" width="50%">
+      <div id="update_time" class="text-xs text-right"><time datetime="2024-06-17"
+          itemprop="modified">データ更新：2024.06.17</time>
+      </div>
 
     </div>
 
-    <div class="px-5 py-3 mb-5 border-double border-4 border-black rounded-xl">
-      <div class="item_title text-xl mb-3">円周率の計算</div>
-      <img src="./data/kuku.jpg" width="50%">
-
-    </div>
 
   </div>
 
@@ -550,7 +566,7 @@
       <p class="mt-5">齋藤　仁志. </p>
     </div>
 
-  </div>
+  </div><!-- main -->
 
   <!-- 使い方 -->
   <div id="manual"><span id="closed-btn2">×</span>
@@ -752,6 +768,10 @@
       $('#overlay').fadeIn();
       $('#image-src').fadeIn();
 
+    }
+
+    window.below = (x) => {
+      $("#" + x).toggle(400);
     }
 
   </script>
