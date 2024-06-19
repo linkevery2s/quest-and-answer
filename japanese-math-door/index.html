@@ -569,7 +569,7 @@
     </div>
 
 
-  </div>
+  </div><!-- main -->
 
   <!-- ポップアップ用のoverlay -->
   <div id="overlay"></div>
@@ -640,6 +640,8 @@
 
   <div id="search" class="text-center"><span id="closed-btn5">×</span>
     <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-search"></i> 検　索</h3>
+
+    <div onclick="search()">aaa</div>
 
     <div class="mt-5 h-96 text-left px-3">
 
@@ -804,6 +806,18 @@
 
     window.below = (x) => {
       $("#" + x).toggle(400);
+    }
+
+    window.search = () =>{
+
+      $('body,html').animate({scrollTop:$("#kuku").offset().top}, 1000);
+
+      $('#overlay').fadeOut();
+      $('#search').fadeOut();
+
+      return false;
+
+
     }
 
   </script>
