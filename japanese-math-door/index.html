@@ -313,6 +313,37 @@
       transform: translateY(20%) rotate(-45deg);
     }
 
+    input {
+      color: rgba(0, 119, 184, 0.5);
+      border: 1px solid rgba(0, 0, 0, .5);
+      font-size: 1.2em;
+      font-weight: bolder;
+      height: 45px;
+      width: 90%;
+    }
+
+    input::-webkit-input-placeholder {
+      color: rgba(0, 119, 184, 0.5);
+    }
+
+    #exp {
+      /*background: rgba(131, 204, 210, 1);*/
+      background: #9d5b8b;
+      border-radius: .3em;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .item {
+      height: 50px;
+      line-height: 50px;
+      cursor: pointer;
+    }
+
+    .item:nth-child(odd) {
+      background: rgba(242, 242, 242, .5);
+    }
+
     /*    .area {
       width: 100%;
       height: 100vh;
@@ -578,7 +609,7 @@
   <div id="beginner"><span id="closed-btn">×</span>
     <h3 class="text-2xl text-center"><i class="fa-solid fa-user"></i> はじめに</h3>
 
-    <div class="overflow-y-scroll overview mt-5 mx-2">
+    <div class="overflow-y-scroll overview mt-5 mx-3">
       <img src="./images/fuji.jpg" width="100%" alt="富士山と河口湖畔の紅葉 by FIND47.JP">
       <p class="text-xs mt-1 source">富士山と河口湖畔の紅葉 by FIND47.JP、<a
           href="https://creativecommons.org/licenses/by/4.0/deed.ja" target="_blank">CC BY ４.0</a></p>
@@ -589,13 +620,19 @@
 
       <p class="mt-5">このアプリでは、江戸時代から伝わる日本独自の数学「和算」を手軽に学ぶことができます。</p>
 
+      <h3 class="text-2xl mt-5" id="manual_h3">アプリを開発したきっかけ</h3>
+
+      <p class="mt-5">2024年は僕のシビックテックの活動の中で、教育アプリを開発することを目標に開発していました。</p>
+      
+      <p class="mt-5">国語のアプリを作ろう！と思っていました。</p>
+
       <h3 class="text-2xl mt-5" id="manual_h3">主な特徴</h3>
 
       <p class="mt-5">国立国会図書館などの文献を参考に、和算の計算方法や算額の問題、解法を掲載しています。</p>
       <p class="mt-5">現代の解き方、和算の解き方を比べることができます。</p>
       <p class="mt-5">生成AIがブームになっている現在、和算の問題がAIにも解けるかどうか、試行しました。</p>
       <p class="mt-5">和算の魅力を再発見し、数学の新たな世界に触れてみませんか？</p>
-      <p class="mt-5">齋藤　仁志. </p>
+      <p class="mt-5 mb-7">齋藤　仁志. </p>
     </div>
 
   </div><!-- main -->
@@ -604,19 +641,26 @@
   <div id="manual"><span id="closed-btn2">×</span>
     <h3 class="text-2xl text-center"><i class="fa-solid fa-book-open"></i> 使い方</h3>
 
-    <div class="overflow-y-scroll overview mt-5 mx-2">
+    <div class="overflow-y-scroll overview mt-5 mx-3">
 
       <h3 class="text-2xl mt-5" id="manual_h3">和算の計算手法や算額を掲載</h3>
       <p class="mt-5">例えば、日本最古の九九表や、平方根の求め方、円周率の計算手法など、江戸時代に栄えた和算ならではの情報を掲載しています。</p>
       <p class="mt-5">各コンテンツの画像をタップすると、拡大表示されます。</p>
-      <p class="mt-5">解説ボタンを押すと、解法が表示されます。</p>
       <p class="mt-5">各々のコンテンツは独立しているので、ご自分の興味のある項目を調べてみてください。</p>
 
       <h3 class="text-2xl mt-7" id="manual_h3">インストール方法</h3>
       <p class="mt-5">PWAに対応しているので、iPhone、Androidともに、WEBブラウザの「ホーム画面に追加」からインストールできます。</p>
       <img src="./images/install.jpg" width="100%" class="mt-5" alt="インストール方法の画像">
 
-      <p class="mt-5">齋藤　仁志. </p>
+      <h3 class="text-2xl mt-7" id="manual_h3">解説ボタン</h3>
+      <p class="mt-5">各コンテンツの解説ボタンを押すと、解法が表示されます。</p>
+
+      <h3 class="text-2xl mt-7" id="manual_h3">検索ボタン</h3>
+      <p class="mt-5">右下の検索ボタンより、各コンテンツのキーワードが検索ができます。</p>
+
+      <h3 class="text-2xl mt-7" id="manual_h3">全画面表示</h3>
+      <p class="mt-5 mb-7">左上の全画面表示ボタンを押すと、ヘッダー、フッターが無くなり、全画面表示に切り替わります。</p>
+
     </div>
 
   </div>
@@ -641,11 +685,14 @@
   <div id="search" class="text-center"><span id="closed-btn5">×</span>
     <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-search"></i> 検　索</h3>
 
-    <div onclick="search()">aaa</div>
-
-    <div class="mt-5 h-96 text-left px-3">
-
+    <input type="text" name="text1" id="text" class="mb-3 pl-2" size="15" autocomplete="off" autofocus
+      placeholder="キーワード検索" />
+    <div class="grid gap-2 grid-cols-2 grid-rows-1 mx-5">
+      <div id="exp" class="search_btn py-3">検　索</div>
+      <div id="exp" class="reset_btn py-3">リセット</div>
     </div>
+
+    <div class="search_list1 overflow-y-scroll h-72 mt-5 mx-5"></div>
 
   </div>
 
@@ -808,17 +855,67 @@
       $("#" + x).toggle(400);
     }
 
-    window.search = () =>{
+    /* 検索機能 */
+    const search_list1 = document.querySelector('.search_list1');
+    const search_btn1 = document.querySelector('.search_btn');
+    const reset_btn1 = document.querySelector('.reset_btn');
 
-      $('body,html').animate({scrollTop:$("#kuku").offset().top}, 1000);
+    search_list1.innerHTML = "";
 
+    let kensaku = text.value;
+
+    const res = await fetch('./data/src.json');
+    const data = await res.json();
+    const max = data.length;
+
+    window.search = (x) => {
+
+      $('body,html').animate({ scrollTop: $("#" + data[x - 1].key).offset().top }, 1000);
       $('#overlay').fadeOut();
       $('#search').fadeOut();
 
       return false;
 
-
     }
+
+    for (let j = 0; j < max; j++) {
+      search_list1.innerHTML += '<div class="item">' +
+        '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+        '</div>';
+    }
+
+    search_btn1.addEventListener('click', () => {
+
+      if (text.value != "") {
+
+        search_list1.innerHTML = "";
+
+        let kensaku = text.value;
+
+        for (let j = 0; j < max; j++) {
+          if (data[j].title.indexOf(kensaku) != -1) {
+            search_list1.innerHTML += '<div class="item">' +
+              '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+              '</div>';
+          }
+        }
+
+      } else { }
+
+    });
+
+    reset_btn1.addEventListener('click', () => {
+
+      search_list1.innerHTML = "";
+
+      for (let j = 0; j < max; j++) {
+        text.value = "";
+        search_list1.innerHTML += '<div class="item">' +
+          '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+          '</div>';
+      }
+
+    });
 
   </script>
 
