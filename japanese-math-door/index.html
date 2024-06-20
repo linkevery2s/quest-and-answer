@@ -178,15 +178,11 @@
     #closed-btn4,
     #closed-btn5 {
       position: absolute;
-      top: 5px;
-      right: 5px;
-      border-radius: 100%;
+      right: 4px;
       color: #000000;
-      border: 1px solid #000000;
       cursor: pointer;
-      width: 30px;
-      height: 30px;
       text-align: center;
+      border-radius: 100%;
     }
 
     #closed-btn:hover,
@@ -285,6 +281,11 @@
       display: flex;
     }
 
+    .item_ti {
+      color: #19448e;
+      display: flex;
+    }
+
     #img_midashi {
       display: flex;
       width: 30px;
@@ -329,6 +330,7 @@
     #exp {
       /*background: rgba(131, 204, 210, 1);*/
       background: #9d5b8b;
+      font-weight: bolder;
       border-radius: .3em;
       color: #ffffff;
       cursor: pointer;
@@ -606,7 +608,7 @@
   <div id="overlay"></div>
 
   <!-- はじめに -->
-  <div id="beginner"><span id="closed-btn">×</span>
+  <div id="beginner"><span id="closed-btn"><i class="fa-regular fa-circle-xmark fa-xl"></i></span>
     <h3 class="text-2xl text-center"><i class="fa-solid fa-user"></i> はじめに</h3>
 
     <div class="overflow-y-scroll overview mt-5 mx-3">
@@ -623,7 +625,7 @@
       <h3 class="text-2xl mt-5" id="manual_h3">アプリを開発したきっかけ</h3>
 
       <p class="mt-5">2024年は僕のシビックテックの活動の中で、教育アプリを開発することを目標に開発していました。</p>
-      
+
       <p class="mt-5">国語のアプリを作ろう！と思っていました。</p>
 
       <h3 class="text-2xl mt-5" id="manual_h3">主な特徴</h3>
@@ -638,7 +640,7 @@
   </div><!-- main -->
 
   <!-- 使い方 -->
-  <div id="manual"><span id="closed-btn2">×</span>
+  <div id="manual"><span id="closed-btn2"><i class="fa-regular fa-circle-xmark fa-xl"></i></span>
     <h3 class="text-2xl text-center"><i class="fa-solid fa-book-open"></i> 使い方</h3>
 
     <div class="overflow-y-scroll overview mt-5 mx-3">
@@ -665,7 +667,7 @@
 
   </div>
 
-  <div id="share" class="text-center"><span id="closed-btn3">×</span>
+  <div id="share" class="text-center"><span id="closed-btn3"><i class="fa-regular fa-circle-xmark fa-xl"></i></span>
     <h3 class="text-2xl text-center mb-3"><i class="fa-regular fa-comments"></i> シェア</h3>
 
     <div class="mt-5 h-96 text-left px-3">
@@ -682,7 +684,7 @@
 
   </div>
 
-  <div id="search" class="text-center"><span id="closed-btn5">×</span>
+  <div id="search" class="text-center"><span id="closed-btn5"><i class="fa-regular fa-circle-xmark fa-xl"></i></span>
     <h3 class="text-2xl text-center mb-3"><i class="fa-solid fa-search"></i> 検　索</h3>
 
     <input type="text" name="text1" id="text" class="mb-3 pl-2" size="15" autocomplete="off" autofocus
@@ -870,7 +872,7 @@
 
     window.search = (x) => {
 
-      $('body,html').animate({ scrollTop: $("#" + data[x - 1].key).offset().top }, 1000);
+      $('body,html').animate({ scrollTop: $("#" + data[x - 1].key).offset().top - 65 }, 1000);
       $('#overlay').fadeOut();
       $('#search').fadeOut();
 
@@ -880,7 +882,7 @@
 
     for (let j = 0; j < max; j++) {
       search_list1.innerHTML += '<div class="item">' +
-        '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+        '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
         '</div>';
     }
 
@@ -895,7 +897,7 @@
         for (let j = 0; j < max; j++) {
           if (data[j].title.indexOf(kensaku) != -1) {
             search_list1.innerHTML += '<div class="item">' +
-              '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+              '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
               '</div>';
           }
         }
@@ -911,7 +913,7 @@
       for (let j = 0; j < max; j++) {
         text.value = "";
         search_list1.innerHTML += '<div class="item">' +
-          '<span class="item_title" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
+          '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
           '</div>';
       }
 
