@@ -129,6 +129,7 @@
       color: #ffffff;
       background: #eb6ea5;
       cursor: pointer;
+      font-weight: bolder;
     }
 
     .kaisetu {
@@ -183,6 +184,7 @@
       background: #9d5b8b;
       cursor: pointer;
       text-align: center;
+      font-weight: bolder;
       border-radius: .3em;
     }
 
@@ -259,6 +261,10 @@
       z-index: 5;
       background: #674196;
       color: #ffffff;
+    }
+
+    .footer .grid{
+      font-weight: bolder;
     }
 
     .footer a {
@@ -886,7 +892,7 @@
     }
 
     for (let j = 0; j < max; j++) {
-      search_list1.innerHTML += '<div class="item">' +
+      search_list1.innerHTML += '<div class="item pl-3">' +
         '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
         '</div>';
     }
