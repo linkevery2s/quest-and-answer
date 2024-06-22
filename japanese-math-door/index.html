@@ -906,7 +906,7 @@
 
         for (let j = 0; j < max; j++) {
           if (data[j].title.indexOf(kensaku) != -1) {
-            search_list1.innerHTML += '<div class="item">' +
+            search_list1.innerHTML += '<div class="item pl-3">' +
               '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
               '</div>';
           }
@@ -922,7 +922,7 @@
 
       for (let j = 0; j < max; j++) {
         text.value = "";
-        search_list1.innerHTML += '<div class="item">' +
+        search_list1.innerHTML += '<div class="item pl-3">' +
           '<span class="item_ti" onclick="search(' + data[j].id + ')">' + data[j].title + '</span>' +
           '</div>';
       }
