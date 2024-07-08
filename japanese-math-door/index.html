@@ -188,6 +188,10 @@
 
     }
 
+    .main a img {
+      border: 1px solid #000000;
+    }
+
     #literature {
       color: #95949a;
       font-weight: bolder;
@@ -428,16 +432,10 @@
       <div class="item_title text-xl mb-3"><img src="./images/icon/rakugo.svg" id="img_midashi" alt="rakugoのアイコン"> 鶴亀算
       </div>
       <div class="grid grid-cols-2 gap-2 mb-5">
-        <!--<div><a href="./data/turukame.jpg" data-lightbox="turukame"
-            data-title="算法点鼠指南録（さんぽうてんざんしなんろく）坂部広胖<br>出典：国立国会図書館デジタルコレクション CC BY 4.0"><img src="./data/turukame.jpg"
+        <div><a href="./data/turukame1.jpg" data-lightbox="turukame" data-title="鶴亀算"><img src="./data/turukame1.jpg"
               width="100%" alt="鶴亀算"></a></div>
         <div><a href="./data/turukame2.jpg" data-lightbox="turukame" data-title="現代語訳"><img src="./data/turukame2.jpg"
-              width="100%" alt="鶴亀算（現代語訳）"></a></div>-->
-
-        <div class="cursor-pointer" onclick="img_loader(1,0);"><img src="./data/turukame1.jpg" width="100%" alt="鶴亀算">
-        </div>
-        <div class="cursor-pointer" onclick="img_loader(2,0);"><img src="./data/turukame2.jpg" width="100%" alt="現代語訳">
-        </div>
+              width="100%" alt="現代語訳"></a></div>
       </div>
 
       <span class="kaisetu-btn px-3 py-2 my-3 rounded-lg" onclick="below(0)">解 説 <i
@@ -467,7 +465,8 @@
       </div>
 
       <div id="update_time" class="text-sm text-right mt-3"><time datetime="2024-06-17"
-          itemprop="modified">データ更新：2024.06.17</time></div>
+          itemprop="modified">データ更新：2024.06.17</time>
+      </div>
 
     </div>
 
@@ -595,8 +594,8 @@
       <div class="item_title text-xl mb-3"><img src="./images/icon/kyampu.svg" id="img_midashi" alt="kyampuのアイコン">
         古来の測量技術</div>
       <div class="grid grid-cols-2 gap-2 mb-5">
-        <div class="cursor-pointer" onclick="korai(1)"><img src="./data/korai1.jpg" alt="青森県三内丸山遺跡" width="100%"></a>
-        </div>
+        <div><a href="./data/korai1.jpg" data-lightbox="古来の測量技術" data-title="青森県三内丸山遺跡"><img src="./data/korai1.jpg"
+              alt="青森県三内丸山遺跡" width="100%"></a></div>
         <div class="cursor-pointer" onclick="korai(2)"><img src="./data/korai2.jpg" alt="青森県三内丸山遺跡（AR・VR）" width="100%">
         </div>
       </div>
@@ -809,7 +808,7 @@
 
     <div id="image-link" class="mt-10"></div>
 
-    <div id="literature" class="mx-1 mt-10 text-xs"></div>
+    <div id="literature" class="mx-1 mt-5 text-xs"></div>
   </div>
 
   <div class="sns-fb">
@@ -1040,7 +1039,7 @@
 
     }*/
 
-    window.img_loader = (x, y) => {
+    /*window.img_loader = (x, y) => {
 
       console.log(x + y);
 
@@ -1056,7 +1055,7 @@
 
       image_src();
 
-    };
+    };*/
 
     window.below = (x) => {
       $("#" + x).toggle(400);
@@ -1076,22 +1075,22 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-  <!-- lightbox2 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"
-    integrity="sha512-U9dKDqsXAE11UA9kZ0XKFyZ2gQCj+3AwZdBMni7yXSvWqLFEj8C1s7wRmWl9iyij8d5zb4wm56j4z/JVEwS77g=="
+  <!-- lightbox2 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
+    integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWvK0beHw0NVJwvCKSgafpy5gwNqKmgUfIBraVwkKI+Cz0SEQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
     integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  lightbox2 options
+  <!-- lightbox2 options -->
   <script>
     lightbox.option({
       "alwaysShowNavOnTouchDevices": true,
       "disableScrolling": true
     })
 
-  </script>-->
+  </script>
 
   <!-- Facebookシェアボタン -->
   <div id="fb-root"></div>
